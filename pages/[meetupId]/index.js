@@ -43,7 +43,9 @@ export async function getStaticPaths() {
   client.close();
 
   return {
-    fallback: false,
+    // fallback: false,
+   //  fallback: true, ya blocking kar sakate hai 404 error nahi aayega new meetup add karne par 
+    fallback: 'blocking',
     //after fetching data from database
     paths: meetups.map((meetup) => ({
       params: { meetupId: meetup._id.toString() },
